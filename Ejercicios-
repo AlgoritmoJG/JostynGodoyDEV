@@ -1,0 +1,175 @@
+1.	Ejercicio
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int Cont = 0;
+            int Num = 0;
+
+        while (Cont < 5)
+        {
+                if (Num % 2 == 0)
+            {
+                Console.WriteLine(Num);
+                Cont++;
+            }
+            Num++;
+        }
+    }
+}
+2.	Ejercicio
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int suma = 0;
+        int contador = 1;
+
+        while (contador <= 10)
+        {
+            suma += contador;
+            contador++;
+        }
+
+        Console.WriteLine("La suma de los primeros 10 números naturales es: " + suma);
+    }
+}
+3.	Ejercicio
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero = 1;
+
+        while (true)
+        {
+            if (numero % 7 == 0 && numero % 11 == 0)
+            {
+                Console.WriteLine("El primer numero entero positivo divisible entre 7 y 11 es: " + numero);
+                break;
+            }
+
+            numero++;
+        }
+    }
+}
+4.	Ejercicio
+
+using System;
+
+namespace ContraseñaPrograma
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string contraseñaCorrecta = "jutiapa";
+            int intentosMaximos = 3;
+
+            for (int intento = 0; intento < intentosMaximos; intento++)
+            {
+                Console.Write("Ingrese su contraseña: ");
+                string contraseñaIngresada = Console.ReadLine();
+
+                if (contraseñaIngresada == contraseñaCorrecta)
+                {
+                    Console.WriteLine("¡Contraseña correcta! Bienvenido.");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"Incorrecto. Te quedan {intentosMaximos - intento - 1} intentos.");
+                }
+            }
+
+            if (intentosMaximos == intentosMaximos - 1)
+            {
+                Console.WriteLine("Has agotado tus intentos. El programa se cerrará.");
+            }
+        }
+    }
+}
+5.	Ejercicio
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Random random = new Random();
+        int numeroAleatorio = random.Next(1, 101);
+        int intentos = 0;
+        int intentoUsuario;
+
+        Console.WriteLine("¡Adivina el número entre 1 y 100!");
+
+        do
+        {
+            Console.Write("Ingresa tu intento: ");
+            intentoUsuario = Convert.ToInt32(Console.ReadLine());
+            intentos++;
+
+            if (intentoUsuario < numeroAleatorio)
+            {
+                Console.WriteLine("El número es más grande. Intenta de nuevo.");
+            }
+            else if (intentoUsuario > numeroAleatorio)
+            {
+                Console.WriteLine("El número es más pequeño. Intenta de nuevo.");
+            }
+
+        } while (intentoUsuario != numeroAleatorio);
+
+        Console.WriteLine("¡Felicidades! ¡Has adivinado el número en " + intentos + " intentos!");
+    }
+}
+6.	Ejercicio
+using System;
+
+namespace JuegoAdivinanza
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random generadorNumeros = new Random();
+            int numeroSecreto = generadorNumeros.Next(1, 101);
+
+            Console.WriteLine("¡Bienvenido al juego de adivinanza!");
+            Console.WriteLine("Trata de adivinar el número secreto entre 1 y 100.");
+
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Ingresa tu número: ");
+                    int intento = int.Parse(Console.ReadLine());
+
+                    if (intento == numeroSecreto)
+                    {
+                        Console.WriteLine($"¡Correcto! El número secreto era {numeroSecreto}. ¡Ganaste!");
+                        break;
+                    }
+                    else if (intento < numeroSecreto)
+                    {
+                        Console.WriteLine("El número es más grande. Sigue intentando.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El número es más pequeño. Sigue intentando.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Ingresa un número válido.");
+                }
+            }
+        }
+    }
+}
